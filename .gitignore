@@ -31,7 +31,8 @@
 /.settings/*
 */.settings/
 *.log.*
-*/.mvn/*
+*/.mvn
 */mvnw
-*/mvnw.cmd
+/*/mvnw.cmd
 /.idea/
+/*/mvnw
