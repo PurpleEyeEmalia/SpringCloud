@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/forezp/SpringCloudConfig/
+          uri: https://github.com/PurpleEyeEmilia/SpringcloudConfig
           search-paths: respo
       label: master
 
