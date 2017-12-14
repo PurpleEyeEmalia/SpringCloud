@@ -1,0 +1,19 @@
+server:
+  port: 8502
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8889/eureka/
+
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        health-check-path: /health   #consul version 0.9.3
+        health-check-interval: 15s
+        instance-id: consul-emilia
+  application:
+    name: consul-emilia

@@ -1,4 +1,4 @@
-package com.yryz.springcloudeurekaclient;
+package com.yryz.springcloudeurekaclientlucy;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,7 +9,6 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -17,22 +16,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @EnableHystrix
 @EnableHystrixDashboard
-public class SpringCloudEurekaClientApplication {
+public class SpringCloudEurekaClientLucyApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringCloudEurekaClientApplication.class, args);
+        SpringApplication.run(SpringCloudEurekaClientLucyApplication.class, args);
     }
 
     @Value("${server.port}")
-    public String port;
+    private String port;
 
-    @RequestMapping("hi")
-    @HystrixCommand(fallbackMethod = "hiError")
-    public String helloWorld(@RequestParam String name){
-        return "hi " + name + ",Im from port: " + port;
+    @RequestMapping("lucy")
+    @HystrixCommand(fallbackMethod = "lucyError")
+    public String getLucy(@RequestParam String name) {
+        return "Hi," + name + " welcome spring cloud , i'm from port " + port;
     }
 
-    public String hiError(String name) {
-        return "Hi,"+ name +" this is a error page of service hi!";
+    public String lucyError(String name) {
+        return "oops," + name + " this is a error page!";
+
     }
 }
